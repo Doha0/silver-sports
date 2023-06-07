@@ -6,6 +6,7 @@ import { FaRegEye } from 'react-icons/fa';
 import { FaRegEyeSlash } from 'react-icons/fa';
 import { AuthContext } from '../../Providers/AuthProvider';
 import Swal from 'sweetalert2';
+import SocialLogin from '../../Components/Shared/SocialLogin/SocialLogin';
 
 const Login = () => {
 
@@ -49,7 +50,7 @@ const Login = () => {
                 </div>
 
                 <div className="card lg:w-1/2 max-w-sm shadow-2xl bg-base-100">
-                    <form onSubmit={handleSubmit(onSubmit)} className="card-body">
+                    <form onSubmit={handleSubmit(onSubmit)} className="card-body pb-4">
                         {/* email */}
                         <div className="form-control">
                             <label className="label">
@@ -64,7 +65,7 @@ const Login = () => {
                                 <span className="label-text">Password</span>
                             </label>
                             <input type={showPassword ? "password" : "text"} name="password" {...register("password", { required: true, })} className="input input-bordered" />
-                            <button className='absolute top-[47%] right-10' onClick={togglePassword}>{showPassword ? <FaRegEye /> : <FaRegEyeSlash />}</button>
+                            <button className='absolute top-[42%] right-10' onClick={togglePassword}>{showPassword ? <FaRegEye /> : <FaRegEyeSlash />}</button>
                             {errors.password?.type === 'required' && <p className='text-red-600'>please enter correct password</p>}
                         </div>
 
@@ -72,8 +73,8 @@ const Login = () => {
                             <input className="sports-button" type="submit" value="login" />
                         </div>
                     </form>
-                    <p className='m-4 pl-4'><small>New to Silver Sports? <Link to="/register">Register</Link> </small></p>
-
+                    <p className='text-center'><small>New to Silver Sports? <Link to="/register">Register</Link> </small></p>
+                    <SocialLogin></SocialLogin>
                 </div>
 
 

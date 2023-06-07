@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { FaRegEye, FaRegEyeSlash } from 'react-icons/fa';
 import { AuthContext } from '../../Providers/AuthProvider';
+import SocialLogin from '../../Components/Shared/SocialLogin/SocialLogin';
 
 const Register = () => {
 
@@ -43,7 +44,7 @@ const Register = () => {
                 </div>
 
                 <div className="card lg:w-1/2 max-w-sm shadow-2xl bg-base-100">
-                    <form onSubmit={handleSubmit(onSubmit)} className="card-body">
+                    <form onSubmit={handleSubmit(onSubmit)} className="card-body pb-4">
                         {/* name */}
                         <div className="form-control">
                             <label className="label">
@@ -80,8 +81,8 @@ const Register = () => {
                             {errors.password?.type === 'required' && <p className='text-red-600'>password is required</p>}
                             {errors.password?.type === 'minlength' && <p className='text-red-600'>Password have to be more than 6 characters</p>}
                             {errors.password?.type === 'maxLength' && <p className="text-red-600">Password must be less than 20 characters</p>}
-                            {errors.password?.type === 'pattern' && <p className='text-red-600'>Password must have one Uppercase one lower case, one number and one special character.</p>}
-                            <button className='absolute top-[41%] right-10' onClick={togglePassword}>{showPassword ? <FaRegEye /> : <FaRegEyeSlash />}</button>
+                            {errors.password?.type === 'pattern' && <p className='text-red-600'>Password must have one Uppercase, one lower case, one number and one special character.</p>}
+                            <button className='absolute top-[38%] right-10' onClick={togglePassword}>{showPassword ? <FaRegEye /> : <FaRegEyeSlash />}</button>
                         </div>
 
                         {/* Confirm password */}
@@ -101,7 +102,7 @@ const Register = () => {
                             {errors.confirmPassword && <p className="text-red-600">{errors.confirmPassword.message}</p>}
                         </div>
 
-                        <button className="absolute top-[55%] right-10" onClick={togglePassword}>
+                        <button className="absolute top-[51%] right-10" onClick={togglePassword}>
                             {showPassword ? <FaRegEye /> : <FaRegEyeSlash />}
                         </button>
 
@@ -118,8 +119,8 @@ const Register = () => {
                             <input className="sports-button" type="submit" value="Register" />
                         </div>
                     </form>
-                    <p className='m-4 pl-4'><small>Already Have an account? <Link to="/login">Login</Link> </small></p>
-
+                    <p className='text-center'><small>Already Have an account? <Link to="/login">Login</Link> </small></p>
+                    <SocialLogin></SocialLogin>
                 </div>
 
 

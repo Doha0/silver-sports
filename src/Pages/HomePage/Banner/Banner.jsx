@@ -7,10 +7,10 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 
 
-import img2 from "../../../assets/Banner/1.jpg"
+import img4 from "../../../assets/Banner/1.jpg"
 import img5 from "../../../assets/Banner/baseball.jpg"
 import img3 from "../../../assets/Banner/basketball.jpg"
-import img4 from "../../../assets/Banner/kid.jpg"
+import img2 from "../../../assets/Banner/kid.jpg"
 import img6 from "../../../assets/Banner/football.jpg"
 import img1 from "../../../assets/Banner/tennis.jpg"
 

@@ -17,7 +17,7 @@ const SocialLogin = () => {
     return (
         <div className="card">
             <div className='card-body pt-4'>
-                <button onClick={handleGoogleSignIn} className="btn bg-white hover:bg-[#04D912] hover:text-white text-black ">
+                <button onClick={handleGoogleSignIn} className="btn bg-white hover:bg-[#04D912] hover:text-white text-black border-black">
                     <FcGoogle size={28}></FcGoogle> <span className='pl-2'>Sign-in with Google</span>
                 </button>
             </div>

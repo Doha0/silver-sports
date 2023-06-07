@@ -1,14 +1,22 @@
-import React from 'react';
+import React, { useState } from 'react';
 import loginBg from "../../assets/Banner/loginbg.jpg"
 import { Link } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
+import { FaRegEye } from 'react-icons/fa';
+import { FaRegEyeSlash } from 'react-icons/fa';
 
 const Login = () => {
+
+    const [showPassword, setShowPassword] = useState('true');
 
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
 
     const onSubmit = data => {
+        console.log(data)
+    }
 
+    const togglePassword = () => {
+        setShowPassword(!showPassword);
     }
 
     return (
@@ -33,21 +41,19 @@ const Login = () => {
                             {errors.email && <span className='text-red-600'>Email is required</span>}
                         </div>
                         {/* password */}
-                        <div className="form-control">
+                        <div className="form-control relative">
                             <label className="label">
                                 <span className="label-text">Password</span>
                             </label>
-                            <input type="password" name="password"
-                                {...register("password", { required: true, })}
-                                 className="input input-bordered"
-                            />
+                            <input type={showPassword ? "text" : "password"} name="password" {...register("password", { required: true, })} className="input input-bordered" />
+                            <button className='absolute bottom-4 right-4' onClick={togglePassword}>{showPassword ? <FaRegEyeSlash /> : <FaRegEye />}</button>
                         </div>
 
                         <div className="form-control mt-6">
                             <input className="sports-button" type="submit" value="login" />
                         </div>
                     </form>
-                    <p className='m-4 pl-4'><small>Already Have an account? <Link to="/">Register</Link> </small></p>
+                    <p className='m-4 pl-4'><small>Already Have an account? <Link to="/register">Register</Link> </small></p>
 
                 </div>
 

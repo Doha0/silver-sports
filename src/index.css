@@ -1,3 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.sports-bg {
+    @apply bg-[#04D912]
+}

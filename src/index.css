@@ -5,3 +5,7 @@
 .sports-bg {
     @apply bg-[#04D912]
 }
+
+.custom-banner-bg {
+   @apply bg-slate-900 bg-opacity-60 p-10 rounded-md;
+}

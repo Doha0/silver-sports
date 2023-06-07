@@ -6,6 +6,14 @@
     @apply bg-[#04D912]
 }
 
+.sports-button {
+    @apply btn bg-[#04D912];
+}
+
+.title-color{
+    @apply text-[#04D912]
+}
+
 .custom-banner-bg {
-   @apply bg-slate-900 bg-opacity-60 p-10 rounded-md;
+    @apply bg-slate-900 bg-opacity-30 p-10 rounded-md;
 }

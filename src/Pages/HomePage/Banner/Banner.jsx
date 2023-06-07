@@ -38,35 +38,35 @@ const Banner = () => {
                         <p className='text-sm lg:text-xl uppercase font-semibold'>Athletic Programs For The Serious Athletes</p>
                     </div>
                 </SwiperSlide>
-                <SwiperSlide>
+                <SwiperSlide className='relative'>
                     <img className='w-full' src={img2} alt="" />
                     <div className='absolute top-[10%] lg:top-[40%] lg:left-[30%] text-center custom-banner-bg text-white'>
                         <h2 className='text-lg lg:text-4xl font-bold uppercase'>Maximize Your Potential</h2>
                         <p className='text-sm lg:text-xl uppercase font-semibold'>Athletic Programs For The Serious Athletes</p>
                     </div>
                 </SwiperSlide>
-                <SwiperSlide>
+                <SwiperSlide className='relative'>
                     <img className='w-full' src={img3} alt="" />
                     <div className='absolute top-[10%] lg:top-[40%] lg:left-[30%] text-center custom-banner-bg text-white'>
                         <h2 className='text-lg lg:text-4xl font-bold uppercase'>Maximize Your Potential</h2>
                         <p className='text-sm lg:text-xl uppercase font-semibold'>Athletic Programs For The Serious Athletes</p>
                     </div>
                 </SwiperSlide>
-                <SwiperSlide>
+                <SwiperSlide className='relative'>
                     <img className='w-full' src={img4} alt="" />
                     <div className='absolute top-[10%] lg:top-[40%] lg:left-[30%] text-center custom-banner-bg text-white'>
                         <h2 className='text-lg lg:text-4xl font-bold uppercase'>Maximize Your Potential</h2>
                         <p className='text-sm lg:text-xl uppercase font-semibold'>Athletic Programs For The Serious Athletes</p>
                     </div>
                 </SwiperSlide>
-                <SwiperSlide>
+                <SwiperSlide className='relative'>
                     <img className='w-full' src={img5} alt="" />
                     <div className='absolute top-[10%] lg:top-[40%] lg:left-[30%] text-center custom-banner-bg text-white'>
                         <h2 className='text-lg lg:text-4xl font-bold uppercase'>Maximize Your Potential</h2>
                         <p className='text-sm lg:text-xl uppercase font-semibold'>Athletic Programs For The Serious Athletes</p>
                     </div>
                 </SwiperSlide>
-                <SwiperSlide>
+                <SwiperSlide className='relative'>
                     <img className='w-full' src={img6} alt="" />
                     <div className='absolute top-[10%] lg:top-[40%] lg:left-[30%] text-center custom-banner-bg text-white'>
                         <h2 className='text-lg lg:text-4xl font-bold uppercase'>Maximize Your Potential</h2>

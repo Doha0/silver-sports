@@ -10,6 +10,8 @@ import PrivateRoute from "./PrivateRoute/PrivateRoute";
 import Test from "../Components/Shared/Test/Test";
 import Dashboard from "../Layout/Dashboard";
 import DashboardHome from "../Pages/Dashboard/DashboardHome/DashboardHome";
+import Instructor from "../Pages/Instructor/Instructor";
+
 
 export const router = createBrowserRouter([
     {
@@ -30,19 +32,19 @@ export const router = createBrowserRouter([
                 element: <Register></Register>,
             },
             {
-                path: "/test",
-                element: <PrivateRoute><Test></Test></PrivateRoute>,
+                path: "/instructors",
+                element: <Instructor></Instructor>,
             },
         ]
     },
     {
         path: 'dashboard',
-        element: <Dashboard></Dashboard>,
+        element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
         children: [
             {
                 path: 'mydash',
                 element: <DashboardHome></DashboardHome>
-            }
+            },
         ]
     }
 ]);

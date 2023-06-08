@@ -1,5 +1,5 @@
 import React from 'react';
-import { Outlet } from 'react-router-dom';
+import { NavLink, Outlet } from 'react-router-dom';
 
 const Dashboard = () => {
 
@@ -15,7 +15,7 @@ const Dashboard = () => {
                 <label htmlFor="my-drawer-4" className="drawer-overlay"></label>
                 <ul className="menu p-4 w-80 h-full bg-base-200 text-base-content">
                     {/* Sidebar content here */}
-                    <li><a>Sidebar Item 1</a></li>
+                    <li><NavLink to="mydash">Dashboard Home</NavLink></li>
                     <li><a>Sidebar Item 2</a></li>
                 </ul>
             </div>

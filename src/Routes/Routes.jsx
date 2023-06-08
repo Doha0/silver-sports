@@ -8,6 +8,8 @@ import Register from "../Pages/Register/Register";
 import ErrorPage from "../Components/ErrorPage/ErrorPage";
 import PrivateRoute from "./PrivateRoute/PrivateRoute";
 import Test from "../Components/Shared/Test/Test";
+import Dashboard from "../Layout/Dashboard";
+import DashboardHome from "../Pages/Dashboard/DashboardHome/DashboardHome";
 
 export const router = createBrowserRouter([
     {
@@ -31,6 +33,16 @@ export const router = createBrowserRouter([
                 path: "/test",
                 element: <PrivateRoute><Test></Test></PrivateRoute>,
             },
-        ],
+        ]
     },
+    {
+        path: 'dashboard',
+        element: <Dashboard></Dashboard>,
+        children: [
+            {
+                path: 'mydash',
+                element: <DashboardHome></DashboardHome>
+            }
+        ]
+    }
 ]);

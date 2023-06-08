@@ -19,7 +19,7 @@ const Navbar = () => {
             <li><Link to='/'>Classes</Link></li>
             {
                 user ? <>
-                    <li><Link to='/'>Dashboard</Link></li>
+                    <li><Link to='/dashboard'>Dashboard</Link></li>
                     {user && <li>
                         <div className="avatar">
                             <div className="w-10 rounded-full ring ring-warning ring-offset-base-100 ring-offset-2">

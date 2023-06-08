@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react';
 import loginBg from "../../assets/Banner/loginbg.jpg"
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { FaRegEye, FaRegEyeSlash } from 'react-icons/fa';
 import { AuthContext } from '../../Providers/AuthProvider';
@@ -9,10 +9,12 @@ import SocialLogin from '../../Components/Shared/SocialLogin/SocialLogin';
 const Register = () => {
 
     const [showPassword, setShowPassword] = useState('true');
-
     const { register, handleSubmit, watch, reset, formState: { errors } } = useForm();
-
     const { createUser, updateUserProfile } = useContext(AuthContext);
+
+    const navigate = useNavigate();
+    const location = useLocation();
+    const from = location.state?.from?.pathname || "/";
 
     const onSubmit = data => {
         // console.log(data);
@@ -20,7 +22,8 @@ const Register = () => {
             .then((result) => {
                 updateUserProfile(data.name, data.PhotoURL);
                 const loggedUser = result.user;
-                console.log(loggedUser);
+                // console.log(loggedUser);
+                navigate(from, { replace: true });
             })
             .catch((error) => {
                 const errorMessage = error.message;

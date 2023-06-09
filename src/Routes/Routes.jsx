@@ -11,6 +11,7 @@ import Test from "../Components/Shared/Test/Test";
 import Dashboard from "../Layout/Dashboard";
 import DashboardHome from "../Pages/Dashboard/DashboardHome/DashboardHome";
 import Instructor from "../Pages/Instructor/Instructor";
+import Classes from "../Pages/Classes/Classes";
 
 
 export const router = createBrowserRouter([
@@ -34,6 +35,10 @@ export const router = createBrowserRouter([
             {
                 path: "/instructors",
                 element: <Instructor></Instructor>,
+            },
+            {
+                path: "/class",
+                element: <Classes></Classes>,
             },
         ]
     },

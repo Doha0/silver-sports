@@ -12,6 +12,8 @@ import Dashboard from "../Layout/Dashboard";
 import DashboardHome from "../Pages/Dashboard/DashboardHome/DashboardHome";
 import Instructor from "../Pages/Instructor/Instructor";
 import Classes from "../Pages/Classes/Classes";
+import SelectedClass from "../Pages/Dashboard/StudentDashboard/SelectedClass";
+import EnrolledClasses from "../Pages/Dashboard/StudentDashboard/EnrolledClasses";
 
 
 export const router = createBrowserRouter([
@@ -47,8 +49,12 @@ export const router = createBrowserRouter([
         element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
         children: [
             {
-                path: 'mydash',
-                element: <DashboardHome></DashboardHome>
+                path: 'selected',
+                element: <SelectedClass></SelectedClass>
+            },
+            {
+                path: 'enroll',
+                element: <EnrolledClasses></EnrolledClasses>
             },
         ]
     }

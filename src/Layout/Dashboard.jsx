@@ -7,7 +7,7 @@ const Dashboard = () => {
     const { user } = useAuth();
 
     const isAdmin = false;
-    const isInstructor = true;
+    const isInstructor = false;
 
     return (
 
@@ -27,7 +27,16 @@ const Dashboard = () => {
                     {isAdmin || isInstructor ? (
                         isAdmin ? (
                             // ----------admin------------
-                            <p>Hello Admin</p>
+                            <>
+                                <div className="avatar my-4">
+                                    <div className="mx-auto w-24 rounded-xl">
+                                        <img src={user.photoURL} />
+                                    </div>
+                                </div>
+                                <div className='mb-4'>Welcome, {user.displayName}</div>
+                                <li><NavLink to="/dashboard/manageclass">Manage Classes</NavLink></li>
+                                <li><NavLink to="/dashboard/manageusers">Manage Users</NavLink></li>
+                            </>
                         ) : (
                             // ----------Instructor------------
                             <>
@@ -37,8 +46,8 @@ const Dashboard = () => {
                                     </div>
                                 </div>
                                 <div className='mb-4'>Welcome, {user.displayName}</div>
-                                <li><NavLink to="addaclass">Add a Class</NavLink></li>
-                                <li><NavLink to="myclasses">My classes</NavLink></li>
+                                <li><NavLink to="/dashboard/addaclass">Add a Class</NavLink></li>
+                                <li><NavLink to="/dashboard/myclasses">My classes</NavLink></li>
                             </>
                         )
                     ) : (
@@ -50,8 +59,9 @@ const Dashboard = () => {
                                 </div>
                             </div>
                             <div className='mb-4'>Welcome, {user.displayName}</div>
-                            <li><NavLink to="selected">Selected Classes</NavLink></li>
-                            <li><NavLink to="enroll">Enrolled classes</NavLink></li>
+                            <li><NavLink to="/dashboard/selected">Selected Classes</NavLink></li>
+                            <li><NavLink to="/dashboard/enroll">Enrolled classes</NavLink></li>
+                            <li><NavLink to={`/`}>Payment</NavLink></li>
                         </>
                     )}
 

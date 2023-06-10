@@ -7,7 +7,7 @@ const Dashboard = () => {
     const { user } = useAuth();
 
     const isAdmin = false;
-    const isInstructor = false;
+    const isInstructor = true;
 
     return (
 
@@ -26,11 +26,23 @@ const Dashboard = () => {
                     {/* <!-- Sidebar content here --> */}
                     {isAdmin || isInstructor ? (
                         isAdmin ? (
+                            // ----------admin------------
                             <p>Hello Admin</p>
                         ) : (
-                            <p>Hello Instructor</p>
+                            // ----------Instructor------------
+                            <>
+                                <div className="avatar my-4">
+                                    <div className="mx-auto w-24 rounded-xl">
+                                        <img src={user.photoURL} />
+                                    </div>
+                                </div>
+                                <div className='mb-4'>Welcome, {user.displayName}</div>
+                                <li><NavLink to="addaclass">Add a Class</NavLink></li>
+                                <li><NavLink to="myclasses">My classes</NavLink></li>
+                            </>
                         )
                     ) : (
+                        // ----------student------------
                         <>
                             <div className="avatar my-4">
                                 <div className="mx-auto w-24 rounded-xl">

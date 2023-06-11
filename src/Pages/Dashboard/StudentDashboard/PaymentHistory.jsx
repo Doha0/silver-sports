@@ -1,9 +1,9 @@
 import React from 'react';
+import useAuth from '../../../Hooks/useAuth';
 import useAxiosSecure from '../../../Hooks/useAxiosSecure';
 import { useQuery } from '@tanstack/react-query';
-import useAuth from '../../../Hooks/useAuth';
 
-const EnrolledClasses = () => {
+const PaymentHistory = () => {
 
     const { user, loading } = useAuth();
     const [axiosSecure] = useAxiosSecure();
@@ -12,15 +12,15 @@ const EnrolledClasses = () => {
         queryKey: ['student', user?.email],
         enabled: !loading,
         queryFn: async () => {
-            const res = await axiosSecure(`/enroll?email=${user?.email}`)
+            const res = await axiosSecure(`/history?email=${user?.email}`)
             // console.log(res.data)
             return res.data;
         }
     })
 
     return (
-        <div className='ml-4 lg:ml-8'>
-            <h2 className='font-semibold text-4xl text-center mb-8'>My Enrolled Classes</h2>
+        <div>
+            <h2 className='font-semibold text-4xl text-center mb-8'>Payment History</h2>
 
             <div className="overflow-x-auto w-full">
                 <table className="table w-full">
@@ -28,11 +28,11 @@ const EnrolledClasses = () => {
                     <thead>
                         <tr className='text-black text-sm'>
                             <th>#</th>
-                            <th>Image</th>
                             <th>Class Name</th>
-                            <th>Instructor</th>
+                            <th>TransactionId</th>
                             <th>Price</th>
-                            
+                            <th>Date</th>
+                            <th>Payment Status</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -44,22 +44,17 @@ const EnrolledClasses = () => {
                                     {index + 1}
                                 </td>
                                 <td>
-                                    <div className="">
-                                        <div className=" w-32 h-20">
-                                            <img className='rounded-md' src={classes.class_image} alt="class" />
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>
                                     {classes.class_name}
                                 </td>
                                 <td>
-                                    {classes.instructor}
+                                    {classes.transactionId}
                                 </td>
 
                                 <td className="">${classes.price}</td>
 
-                
+                                <td>{new Date(classes.date).toLocaleString()}</td>
+
+                                <td>{classes.payment ? "Paid" : "Not Paid"}</td>
 
                             </tr>)
                         }
@@ -72,4 +67,4 @@ const EnrolledClasses = () => {
     );
 };
 
-export default EnrolledClasses;
+export default PaymentHistory;

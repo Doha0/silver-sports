@@ -29,6 +29,7 @@ const SelectedClass = () => {
 
     return (
         <div>
+            <h2 className='font-semibold text-4xl text-center mb-8'>Selected Classes</h2>
             <div className="overflow-x-auto w-full">
                 <table className="table w-full">
                     {/* head */}

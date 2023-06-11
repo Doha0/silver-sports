@@ -17,7 +17,7 @@ const Payment = () => {
 
     return (
         <div className="w-[25rem] md:w-[50rem]">
-            <p>{paymentData._id}</p>
+            {/* <p>{paymentData._id}</p> */}
             <Elements stripe={stripePromise}>
                 <CheckoutForm price={price} paymentData={paymentData} ></CheckoutForm>
             </Elements>

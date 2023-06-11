@@ -61,7 +61,7 @@ const Dashboard = () => {
                             <div className='mb-4'>Welcome, {user.displayName}</div>
                             <li><NavLink to="/dashboard/selected">Selected Classes</NavLink></li>
                             <li><NavLink to="/dashboard/enroll">Enrolled classes</NavLink></li>
-                            <li><NavLink to={`/`}>Payment</NavLink></li>
+                            <li><NavLink to="/dashboard/paymenthistory">Payment History</NavLink></li>
                         </>
                     )}
 

@@ -21,6 +21,9 @@ import ManageClasses from "../Pages/Dashboard/AdminDashboard/ManageClasses/Manag
 import ManageUsers from "../Pages/Dashboard/AdminDashboard/ManageUsers/ManageUsers";
 import PaymentHistory from "../Pages/Dashboard/StudentDashboard/PaymentHistory";
 import Feedback from "../Pages/Dashboard/AdminDashboard/ManageClasses/Feedback";
+import InstructorRoute from "./InstructorRoute/InstructorRoute";
+import AdminRoute from "./AdminRoute/AdminRoute";
+import StudentRoute from "./StudentRoute/StudentRoute";
 
 
 export const router = createBrowserRouter([
@@ -58,44 +61,45 @@ export const router = createBrowserRouter([
             // student Route
             {
                 path: 'selected',
-                element: <SelectedClass></SelectedClass>
+                element: <StudentRoute><SelectedClass></SelectedClass></StudentRoute>
             },
             {
                 path: 'enroll',
-                element: <EnrolledClasses></EnrolledClasses>
+                element: <StudentRoute><EnrolledClasses></EnrolledClasses></StudentRoute>
             },
             {
                 path: 'paymenthistory',
-                element: <PaymentHistory></PaymentHistory>
+                element: <StudentRoute><PaymentHistory></PaymentHistory></StudentRoute>
+            },
+            {
+                path: 'checkout/:id',
+                element: <StudentRoute><Payment></Payment></StudentRoute>,
+                loader: ({ params }) => fetch(`https://silver-sport-server.vercel.app/payment/${params.id}`)
             },
 
             // instructor Route
             {
                 path: 'addaclass',
-                element: <AddAClass></AddAClass>
+                element: <InstructorRoute><AddAClass></AddAClass></InstructorRoute>
             },
             {
                 path: 'myclasses',
-                element: <MyClasses></MyClasses>
+                element: <InstructorRoute><MyClasses></MyClasses></InstructorRoute>
             },
-            {
-                path: 'checkout/:id',
-                element: <Payment></Payment>,
-                loader: ({ params }) => fetch(`http://localhost:5000/payment/${params.id}`)
-            },
+
             // admin Route
             {
                 path: 'manageclass',
-                element: <ManageClasses></ManageClasses>
+                element: <AdminRoute><ManageClasses></ManageClasses></AdminRoute>
             },
             {
                 path: 'manageusers',
-                element: <ManageUsers></ManageUsers>
+                element: <AdminRoute><ManageUsers></ManageUsers></AdminRoute>
             },
             {
                 path: "feedback/:id",
-                element: <Feedback></Feedback>,
-                loader: ({ params }) => fetch(`http://localhost:5000/feedback/${params.id}`)
+                element: <AdminRoute><Feedback></Feedback></AdminRoute>,
+                loader: ({ params }) => fetch(`https://silver-sport-server.vercel.app/feedback/${params.id}`)
             },
         ]
     }

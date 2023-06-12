@@ -5,6 +5,7 @@ import { useForm } from 'react-hook-form';
 import { FaRegEye, FaRegEyeSlash } from 'react-icons/fa';
 import { AuthContext } from '../../Providers/AuthProvider';
 import SocialLogin from '../../Components/Shared/SocialLogin/SocialLogin';
+import Swal from 'sweetalert2';
 
 const Register = () => {
 
@@ -19,15 +20,38 @@ const Register = () => {
     const onSubmit = data => {
         // console.log(data);
         createUser(data.email, data.password)
-            .then((result) => {
-                updateUserProfile(data.name, data.PhotoURL);
+            .then(result => {
                 const loggedUser = result.user;
                 // console.log(loggedUser);
-                navigate(from, { replace: true });
-            })
-            .catch((error) => {
-                const errorMessage = error.message;
-                // console.log(errorMessage);    
+                updateUserProfile(data.name, data.PhotoURL)
+                    .then(() => {
+
+                        const saveUser = { name: data.name, email: data.email, photo: data.PhotoURL, role: "student", }
+
+                        fetch('https://silver-sport-server.vercel.app/users', {
+                            method: "POST",
+                            headers: {
+                                "content-type": "application/json"
+                            },
+                            body: JSON.stringify(saveUser)
+                        })
+                            .then(res => res.json())
+                            .then(data => {
+                                if (data.insertedId) {
+                                    reset();
+                                    Swal.fire({
+                                        position: 'center',
+                                        icon: 'success',
+                                        title: 'User created successfully.',
+                                        showConfirmButton: false,
+                                        timer: 1500
+                                    });
+                                    navigate('/');
+                                }
+                            })
+
+                    })
+                    .catch(error => console.log(error))
             });
     }
 

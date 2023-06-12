@@ -9,7 +9,7 @@ const PopularClass = () => {
         queryKey: ["classes"],
         queryFn: () =>
             axios
-                .get("http://localhost:5000/class?limit=6")
+                .get("https://silver-sport-server.vercel.app/class?limit=6")
                 .then((res) => {
                     return res.data;
                 }),

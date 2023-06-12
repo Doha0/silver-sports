@@ -1,13 +1,18 @@
 import React from 'react';
 import { NavLink, Outlet } from 'react-router-dom';
 import useAuth from '../Hooks/useAuth';
+import useAdmin from '../Hooks/useAdmin';
+import useInstructor from '../Hooks/useInstructor';
 
 const Dashboard = () => {
 
     const { user } = useAuth();
 
-    const isAdmin = true;
-    const isInstructor = false;
+    // const isAdmin = true;
+    // const isInstructor = true;
+
+    const [isAdmin] = useAdmin();
+    const [isInstructor] = useInstructor();
 
     return (
 

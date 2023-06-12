@@ -7,7 +7,7 @@ const useClass = () => {
         queryKey: ["classes"],
         queryFn: () =>
             axios
-                .get("http://localhost:5000/class?approve=true")
+                .get("https://silver-sport-server.vercel.app/class?approve=true")
                 .then((res) => {
                     return res.data;
                 }),

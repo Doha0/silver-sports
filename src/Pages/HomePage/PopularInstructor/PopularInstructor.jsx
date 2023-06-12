@@ -9,7 +9,7 @@ const PopularInstructor = () => {
         queryKey: [],
         queryFn: () =>
             axios
-                .get("http://localhost:5000/popularinstructors")
+                .get("https://silver-sport-server.vercel.app/popularinstructors")
                 .then((res) => {
                     console.log(res.data);
                     return res.data;

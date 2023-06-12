@@ -40,6 +40,7 @@ const MyClasses = () => {
                             <th>Enrolled</th>
                             <th>Status</th>
                             <th>Update</th>
+                            <th>Feedback</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -71,6 +72,9 @@ const MyClasses = () => {
                                 </td>
                                 <td>
                                     <button onClick={() => handleUpdate(classes)} className="btn btn-success bg-[#04D912]">Update</button>
+                                </td>
+                                <td>
+                                    {classes?.feedback}
                                 </td>
                             </tr>)
                         }

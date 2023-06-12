@@ -11,7 +11,7 @@ const ManageClasses = () => {
         queryKey: ["cls"],
         queryFn: () =>
             axios
-                .get("http://localhost:5000/class")
+                .get("https://silver-sport-server.vercel.app/class")
                 .then((res) => {
                     return res.data;
                 }),
@@ -19,7 +19,7 @@ const ManageClasses = () => {
 
     const handleStatus = (id, updateStatus) => {
         fetch(
-            `http://localhost:5000/class/${id}?status=${updateStatus}`,
+            `https://silver-sport-server.vercel.app/class/${id}?status=${updateStatus}`,
             {
                 method: "PATCH",
             }
@@ -101,7 +101,7 @@ const ManageClasses = () => {
                                 </td>
                                 <td>
                                     <Link to={`/dashboard/feedback/${classes._id}`}><button
-                                        className="btn btn-info bg-blue-500 normal-case">Feedback</button></Link>
+                                        className="btn btn-info bg-cyan-500 normal-case">Feedback</button></Link>
                                 </td>
                             </tr>)
                         }

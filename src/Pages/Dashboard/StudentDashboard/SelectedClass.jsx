@@ -11,7 +11,7 @@ const SelectedClass = () => {
     // console.log(student);
 
     const handleDelete = (classes) => {
-        fetch(`http://localhost:5000/students/${classes._id}`, {
+        fetch(`https://silver-sport-server.vercel.app/students/${classes._id}`, {
             method: "DELETE"
         })
             .then(res => res.json())

@@ -11,7 +11,7 @@ const Feedback = () => {
 
     const onSubmit = (data) => {
         console.log(data);
-        fetch(`http://localhost:5000/feedback/${feedbackData._id}`, {
+        fetch(`https://silver-sport-server.vercel.app/feedback/${feedbackData._id}`, {
             method: "PUT",
             headers: {
                 "content-type": "application/json"

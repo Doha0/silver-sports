@@ -12,7 +12,7 @@ const AddAClass = () => {
         data.status = "pending";
         // console.log(data);
 
-        fetch('http://localhost:5000/class', {
+        fetch('https://silver-sport-server.vercel.app/class', {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"

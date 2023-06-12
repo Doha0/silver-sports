@@ -9,7 +9,7 @@ const Instructor = () => {
         queryKey: [],
         queryFn: () =>
             axios
-                .get("http://localhost:5000/instructors")
+                .get("https://silver-sport-server.vercel.app/instructors")
                 .then((res) => {
                     console.log(res.data);
                     return res.data;

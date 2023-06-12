@@ -12,7 +12,7 @@ const ClassInfo = ({ classes }) => {
         // console.log(classes);
         if (user) {
             const classInfo = { ClassId: _id, class_name: class_name, class_image: class_image, instructor: instructor, availableSeats: availableSeats, price: price, email: user.email }
-            fetch('http://localhost:5000/students', {
+            fetch('https://silver-sport-server.vercel.app/students', {
                 method: "POST",
                 headers: {
                     'content-type': "application/json"

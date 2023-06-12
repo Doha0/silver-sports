@@ -1,5 +1,3 @@
-import { useQuery } from '@tanstack/react-query';
-import axios from 'axios';
 import React from 'react';
 import ClassInfo from './ClassInfo';
 import useClass from '../../Hooks/useClass';
@@ -9,7 +7,7 @@ const Classes = () => {
     const [classes] = useClass();
 
 
-    const totalSeats = classes.reduce((sum, seat) => seat.availableSeats + sum, 0);
+    // const totalSeats = classes.reduce((sum, seat) => seat.availableSeats + sum, 0);
 
     return (
         <div>
@@ -18,8 +16,8 @@ const Classes = () => {
                 <p className='text-lg px-0 lg:px-60'>
                     Silver Sports Academy offers dynamic and engaging sports classes for individuals of all ages and skill levels. Our classes are led by experienced instructors who are passionate about their sports and dedicated to helping students reach their full potential.
                 </p>
-                <div className="">Available Classes: {classes.length}</div>
-                <div className="">Total Seats: {totalSeats}</div>
+                {/* <div className="">Available Classes: {classes.length}</div> */}
+                {/* <div className="">Total Seats: {totalSeats}</div> */}
             </div>
             <div className='grid grid-cols-1 lg:grid-cols-3 justify-items-center gap-8 mb-8'>
                 {

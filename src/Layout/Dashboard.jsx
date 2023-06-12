@@ -29,6 +29,7 @@ const Dashboard = () => {
                 <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
                 <ul className="menu p-4 w-72 h-full  text-base-content">
                     {/* <!-- Sidebar content here --> */}
+                    
                     {isAdmin || isInstructor ? (
                         isAdmin ? (
                             // ----------admin------------

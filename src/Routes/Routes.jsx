@@ -23,7 +23,6 @@ import PaymentHistory from "../Pages/Dashboard/StudentDashboard/PaymentHistory";
 import Feedback from "../Pages/Dashboard/AdminDashboard/ManageClasses/Feedback";
 import InstructorRoute from "./InstructorRoute/InstructorRoute";
 import AdminRoute from "./AdminRoute/AdminRoute";
-import StudentRoute from "./StudentRoute/StudentRoute";
 
 
 export const router = createBrowserRouter([
@@ -61,19 +60,19 @@ export const router = createBrowserRouter([
             // student Route
             {
                 path: 'selected',
-                element: <StudentRoute><SelectedClass></SelectedClass></StudentRoute>
+                element: <SelectedClass></SelectedClass>
             },
             {
                 path: 'enroll',
-                element: <StudentRoute><EnrolledClasses></EnrolledClasses></StudentRoute>
+                element: <EnrolledClasses></EnrolledClasses>
             },
             {
                 path: 'paymenthistory',
-                element: <StudentRoute><PaymentHistory></PaymentHistory></StudentRoute>
+                element: <PaymentHistory></PaymentHistory>
             },
             {
                 path: 'checkout/:id',
-                element: <StudentRoute><Payment></Payment></StudentRoute>,
+                element: <Payment></Payment>,
                 loader: ({ params }) => fetch(`https://silver-sport-server.vercel.app/payment/${params.id}`)
             },
 

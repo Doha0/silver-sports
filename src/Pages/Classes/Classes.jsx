@@ -6,7 +6,6 @@ const Classes = () => {
 
     const [classes] = useClass();
 
-
     // const totalSeats = classes.reduce((sum, seat) => seat.availableSeats + sum, 0);
 
     return (

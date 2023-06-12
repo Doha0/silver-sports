@@ -3,11 +3,12 @@ import useClass from '../../../../Hooks/useClass';
 import Swal from 'sweetalert2';
 import { useQuery } from '@tanstack/react-query';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 const ManageClasses = () => {
 
-    const { data: classes = [], refetch } = useQuery({
-        queryKey: ["classes"],
+    const { data: cls = [], refetch } = useQuery({
+        queryKey: ["cls"],
         queryFn: () =>
             axios
                 .get("http://localhost:5000/class")
@@ -38,6 +39,7 @@ const ManageClasses = () => {
             });
     }
 
+
     return (
         <div>
             <h2 className='font-semibold text-4xl text-center mb-8'>Manage Classes</h2>
@@ -61,7 +63,7 @@ const ManageClasses = () => {
                     </thead>
                     <tbody>
                         {
-                            classes.map((classes, index) => <tr
+                            cls.map((classes, index) => <tr
                                 key={classes._id}
                             >
                                 <td>
@@ -90,13 +92,16 @@ const ManageClasses = () => {
                                     ${classes.price}
                                 </td>
                                 <td>
-                                    <button onClick={() => handleStatus(classes._id, "approve")} className={`btn btn-success bg-[#04D912] normal-case ${classes.status === "pending" ? " " : "btn-disabled bg-white"}`}>Approve</button>
+                                    <button onClick={() => handleStatus(classes._id, "approve")}
+                                        className={`btn btn-success bg-[#04D912] normal-case ${classes.status === "pending" ? " " : "btn-disabled bg-white"}`}>Approve</button>
                                 </td>
                                 <td>
-                                    <button onClick={() => handleStatus(classes._id, "deny")} className={`btn btn-error bg-red-600 normal-case ${classes.status === "pending" ? " " : "btn-disabled bg-white"}`}>Deny</button>
+                                    <button onClick={() => handleStatus(classes._id, "deny")}
+                                        className={`btn btn-error bg-red-600 normal-case ${classes.status === "pending" ? " " : "btn-disabled bg-white"}`}>Deny</button>
                                 </td>
                                 <td>
-                                    <button className="btn btn-info bg-blue-500 normal-case">Feedback</button>
+                                    <Link to={`/dashboard/feedback/${classes._id}`}><button
+                                        className="btn btn-info bg-blue-500 normal-case">Feedback</button></Link>
                                 </td>
                             </tr>)
                         }

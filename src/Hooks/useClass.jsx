@@ -9,7 +9,6 @@ const useClass = () => {
             axios
                 .get("http://localhost:5000/class?approve=true")
                 .then((res) => {
-                    // console.log(res.data);
                     return res.data;
                 }),
     });

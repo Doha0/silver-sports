@@ -20,6 +20,7 @@ import Payment from "../Pages/Dashboard/Payment/Payment";
 import ManageClasses from "../Pages/Dashboard/AdminDashboard/ManageClasses/ManageClasses";
 import ManageUsers from "../Pages/Dashboard/AdminDashboard/ManageUsers/ManageUsers";
 import PaymentHistory from "../Pages/Dashboard/StudentDashboard/PaymentHistory";
+import Feedback from "../Pages/Dashboard/AdminDashboard/ManageClasses/Feedback";
 
 
 export const router = createBrowserRouter([
@@ -82,7 +83,7 @@ export const router = createBrowserRouter([
                 element: <Payment></Payment>,
                 loader: ({ params }) => fetch(`http://localhost:5000/payment/${params.id}`)
             },
-            // instructor Route
+            // admin Route
             {
                 path: 'manageclass',
                 element: <ManageClasses></ManageClasses>
@@ -90,6 +91,11 @@ export const router = createBrowserRouter([
             {
                 path: 'manageusers',
                 element: <ManageUsers></ManageUsers>
+            },
+            {
+                path: "feedback/:id",
+                element: <Feedback></Feedback>,
+                loader: ({ params }) => fetch(`http://localhost:5000/feedback/${params.id}`)
             },
         ]
     }

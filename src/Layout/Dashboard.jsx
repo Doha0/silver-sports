@@ -6,8 +6,8 @@ const Dashboard = () => {
 
     const { user } = useAuth();
 
-    const isAdmin = false;
-    const isInstructor = true;
+    const isAdmin = true;
+    const isInstructor = false;
 
     return (
 

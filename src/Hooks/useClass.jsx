@@ -7,7 +7,7 @@ const useClass = () => {
         queryKey: ["classes"],
         queryFn: () =>
             axios
-                .get("http://localhost:5000/class")
+                .get("http://localhost:5000/class?approve=true")
                 .then((res) => {
                     // console.log(res.data);
                     return res.data;

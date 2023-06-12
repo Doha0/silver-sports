@@ -9,9 +9,8 @@ const PopularClass = () => {
         queryKey: ["classes"],
         queryFn: () =>
             axios
-                .get("http://localhost:5000/popularclass")
+                .get("http://localhost:5000/class?limit=6")
                 .then((res) => {
-                    // console.log(res.data);
                     return res.data;
                 }),
     });
